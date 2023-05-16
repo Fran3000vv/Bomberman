@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    public Rigidbody2D rigidbody{get;private set;}
+    public new Rigidbody2D rigidbody{get;private set;}
     private Vector2 direction=Vector2.down;
     public float speed=5f;
 

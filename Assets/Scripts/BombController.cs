@@ -84,6 +84,11 @@ public class BombController : MonoBehaviour
             destructibleTiles.SetTile(cell,null);
         }
     }
+
+    public void AddBomb(){
+        bombAmount++;
+        bombsRemaining++;
+    }
     // private void OnTriggerExit2D(Collider2D other) {
     //     if(other.GameObject.layer==LayerMask.NameToLayer("Bomb")){
     //         other.isTrigger=false;
