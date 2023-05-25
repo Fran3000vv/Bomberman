@@ -13,11 +13,12 @@ public class GameManager : MonoBehaviour
             }
         }
         if(aliveCount<=1){
-            Invoke(nameof(NewRound),3f);
+            Invoke(nameof(NewRound),10f);
         }
     }
 
     public void NewRound(){
+        Debug.Log("Nueva Ronda Comienza");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
