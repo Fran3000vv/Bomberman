@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
             }
         }
         if(aliveCount<=1){
-            Invoke(nameof(NewRound),10f);
+            Invoke(nameof(NewRound),3f);
         }
     }
 
