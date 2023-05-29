@@ -21,10 +21,6 @@ public class BombController : MonoBehaviour
     public Tilemap destructibleTiles;
     public Destructible destructiblePrefab;
 
-    private static readonly Vector2 DefaultVector = new Vector2(-20, -20);
-
-
-
     private void OnEnable(){
         bombsRemaining = bombAmount;
     }
