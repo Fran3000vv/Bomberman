@@ -37,6 +37,7 @@ public class BombController : MonoBehaviour
         position.y=Mathf.Round(position.y);
 
         GameObject bomb=Instantiate(bombPrefab,position,Quaternion.identity);
+        bomb.GetComponent<BombTF>().radius=explosionRadius;
         bombsRemaining--;
 
         yield return new WaitForSeconds(bombFuseTime);
@@ -72,7 +73,8 @@ public class BombController : MonoBehaviour
         }
         if(Physics2D.OverlapBox(position,Vector2.one/2f,0f,LayerMask.GetMask("Bomb"))&&!Physics2D.OverlapBox(position,Vector2.one/2f,0f,LayerMask.GetMask("Bomb")).gameObject.GetComponent<BombTF>().isExploding){
             GameObject bomb=Physics2D.OverlapBox(position,Vector2.one/2f,0f,LayerMask.GetMask("Bomb")).gameObject;
-            bomb.GetComponent<BombTF>().isExploding=true;
+            BombTF bombTF=bomb.GetComponent<BombTF>();
+            bombTF.isExploding=true;
 
             Vector2 positionAux=bomb.transform.position;
             positionAux.x=Mathf.Round(positionAux.x);
@@ -82,10 +84,10 @@ public class BombController : MonoBehaviour
             explosionAux.SetActiveRenderer(explosionAux.start);
             explosionAux.DestroyAfter(explosionDuration);
 
-            Explode(positionAux,Vector2.up,explosionRadius);
-            Explode(positionAux,Vector2.left,explosionRadius);
-            Explode(positionAux,Vector2.down,explosionRadius);
-            Explode(positionAux,Vector2.right,explosionRadius);
+            Explode(positionAux,Vector2.up,bombTF.radius);
+            Explode(positionAux,Vector2.left,bombTF.radius);
+            Explode(positionAux,Vector2.down,bombTF.radius);
+            Explode(positionAux,Vector2.right,bombTF.radius);
 
             Destroy(bomb);
 

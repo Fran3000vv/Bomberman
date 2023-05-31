@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class LocalSettings : MonoBehaviour
+public class LocalSettings
 {
     public int playerId;
     public KeyCode bombKey;
